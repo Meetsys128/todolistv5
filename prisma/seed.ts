@@ -10,6 +10,14 @@ async function main() {
         description: 'I really wish I werent here right now',
       },
     }),
+    prisma.todo.upsert({
+      where: { id: 2  },
+      update: {},
+      create: {
+        name: 'get instance of instace of insteance',
+        description: 'it do be so',
+      },
+    })
   
   ])
   console.log(response)
