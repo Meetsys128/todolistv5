@@ -32,32 +32,7 @@ export async function GET(req: Request, res: Response) {
     );
   }
 }
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const { id } = req.query;
-  
-    try {
-      const todo = await prisma.todo.findUnique({
-        where: {
-          id: Number(id),
-        },
-        select: {
-          id: true,
-          name: true,
-          description: true,
-          createdAt: true,
-        },
-      });
-  
-      if (!todo) {
-        return res.status(404).json({ message: 'Todo not found' });
-      }
-  
-      return res.status(200).json(todo);
-    } catch (e) {
-      console.error(e);
-      return res.status(500).json({ message: 'Internal Server Error' });
-    }
-  }
+
 export async function POST(req: Request, res: Response) {
   try {
     const body = await req.json()
