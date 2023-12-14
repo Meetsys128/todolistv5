@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
 import { Suspense } from 'react'
@@ -40,7 +41,7 @@ export default function Home() {
       <div className="sm:absolute sm:bottom-0 w-full px-20 py-10 flex justify-between">
      
         <Link
-          href="https://github.com/Meetsys128/todolistv5"
+          href="https://www.imadeitthefuckup.net/"
           className="flex items-center space-x-2"
         >
           <Image

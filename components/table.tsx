@@ -72,7 +72,7 @@ export default async function Table() {
             <p className="text-sm text-gray-500">{timeAgo(item.createdAt)}</p>
           </div>
         ))}
-             <button>Add new todo</button>
+              <Link href="/[slug]" as={`/new`}> Add new</Link>
       </div>
     </div>
   )

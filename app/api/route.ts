@@ -37,7 +37,7 @@ export async function POST(req: Request, res: Response) {
   try {
     const body = await req.json()
 
-    if (!body.id || !body.name || !body.description) {
+    if ( !body.name || !body.description) {
       return new Response(
         JSON.stringify({
           message: "No to nejde tohle asi...",
@@ -50,8 +50,22 @@ export async function POST(req: Request, res: Response) {
         }
       );
     }
-
-    const item= await prisma.todo.create({
+    if(!body.id)
+    {
+        const item= await prisma.todo.create({
+            data: {
+                name: body.name,
+                description: body.description
+            },
+          });
+          return new Response(JSON.stringify(item), {
+            status: 200,
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+    }else{
+         const item= await prisma.todo.create({
       data: {
           id: body.id,
           name: body.name,
@@ -64,6 +78,8 @@ export async function POST(req: Request, res: Response) {
         "Content-Type": "application/json",
       },
     });
+    }
+   
   }
   catch(e) {
     return new Response(

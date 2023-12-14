@@ -20,3 +20,53 @@ body {
 .danger{
   color: brown;
 }
+@keyframes rotate {
+  from {
+      transform:translate(-50%,-50%) rotate(0deg) ;
+     
+  }
+  to { 
+    transform:translate(-50%,-50%)rotate(360deg);
+  }
+}
+
+
+@-webkit-keyframes rotate {
+  from {
+      -webkit-transform: translate(-50%,-50%) rotate(0deg) ;
+     
+  }
+  to { 
+      -webkit-transform: translate(-50%,-50%) rotate(360deg) ;
+    
+  }
+}
+
+.load {
+ 
+width: 100px;
+height: 100px;
+margin: 110px auto 0;
+background-image: url("https://www.pslib.cz/prumkatv/img/logo.gif") ;
+background-repeat: no-repeat;
+background-size: contain;
+border:solid 10px #2b10a1;
+border-radius: 50%;
+border-right-color: transparent;
+border-bottom-color: transparent;
+position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ -webkit-transition: all 0.5s ease-in;
+  -webkit-animation-name:             rotate; 
+  -webkit-animation-duration:         1.0s; 
+  -webkit-animation-iteration-count:  infinite;
+  -webkit-animation-timing-function: linear;
+    
+     transition: all 0.1s ease-in;
+  animation-name:             rotate; 
+  animation-duration:         0.4s; 
+  animation-iteration-count:  infinite;
+  animation-timing-function:cubic-bezier(0.4, 0.6, 0.3, 0.7); 
+}
