@@ -115,7 +115,7 @@ export default function Page({params}: PageProps){
        <StyledComponent>
   <StyledComponentSameRow>
 
-    <p style={{ alignSelf: 'flex-end' }}><StyledComponentTitle value={name} onChange={(e) => {setName(e.target.value);setSaved(false)}}></StyledComponentTitle></p>
+    <StyledComponentTitle value={name} onChange={(e) => {setName(e.target.value);setSaved(false)}} style={{ alignSelf: 'flex-end' }}></StyledComponentTitle>
     <StyledComponentHeader>{item?.id}</StyledComponentHeader>
   </StyledComponentSameRow>
   <StyledComponentMultilineText value={desc} onChange={(e) => {setDesc(e.target.value);setSaved(false);}}/>

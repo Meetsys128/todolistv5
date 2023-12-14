@@ -39,41 +39,78 @@ export default async function Table() {
       body: JSON.stringify({id: id})
     })
       .then((response) => {
-       setReloading(true);
+      setReloading(true);
       })
       
      
   };
 
   return (
-    <div className="widen bg-white/30 p-12 shadow-xl ring-1 ring-gray-900/5 rounded-lg backdrop-blur-lg max-w-xl mx-auto w-full" >
-      <div className="flex justify-between items-center mb-4">
+
+    <div style={{width:"100%"}}>
+          {reloading
+      ?
+      <>
+     <div className='load'></div>
+      </>
+      :
+      <>
+       <div>
         <div className="space-y-1">
           <h2 className="text-xl font-semibold">The list of todo items</h2>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm">
             Fetched {itemlist.length} todos in {duration}ms
           </p>
         </div>
       
       </div>
-      <div className="divide-y divide-gray-900/5">
-        {itemlist.map((item:TodoItem) => (
-          <div
+      <table style={{width:"100%"}}>
+  
+      <tr
+            
+            className="flex items-center justify-between py-3"
+          >
+            
+              <td style={{width:"25%",overflow:"hidden"}}><strong>Name</strong></td>
+            <td style={{width:"55%",overflow:"hidden"}}>
+            <p>Description</p>
+              </td> 
+              <td >
+              Actions
+              </td>
+             
+            <td>
+            <p className="text-sm text-gray-500" style={{color:"#FFEEDD"}}>Last modified</p>
+            </td>
+            
+          </tr>
+  {itemlist.map((item:TodoItem) => (
+          <tr
             key={item.name}
             className="flex items-center justify-between py-3"
           >
-            <div className="flex items-center space-x-4">
-              <strong>{item.name}</strong>
-             <p>{item.description}</p>
-              
-             <Link href="/[slug]" as={`/${item.id}`}> Edit</Link>
-              <button onClick={(rating) => deleteItem(item.id)} className='danger'>Delete</button>
-            </div>
-            <p className="text-sm text-gray-500">{timeAgo(item.createdAt)}</p>
-          </div>
+            
+              <td style={{width:"25%",overflow:"hidden"}}><strong>{item.name}</strong></td>
+            <td style={{width:"50%",overflow:"hidden"}}>
+            <p>{item.description}</p>
+              </td> 
+              <td >
+              <Link href="/[slug]" as={`/${item.id}`}> Edit</Link>&nbsp;&nbsp;&nbsp;
+              <Link href="/" onClick={(rating) => deleteItem(item.id)} className='danger'>Delete</Link>
+              </td>
+             
+            <td>
+            <p className="text-sm text-gray-500" style={{color:"#FFEEDD"}}>{timeAgo(item.createdAt)}</p>
+            </td>
+            
+          </tr>
         ))}
-              <Link href="/[slug]" as={`/new`}> Add new</Link>
-      </div>
+</table>
+   <Link href="/new">Add new todo</Link>
+      </>
+     
+      }
+     
     </div>
   )
 }

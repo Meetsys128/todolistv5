@@ -5,6 +5,7 @@ const StyledComponentTitle = styled.input`
  font-size: larger;
  color: #FFEEDD;
  background-color: #00000000;
+ width: 90%;
 `;
 
 
