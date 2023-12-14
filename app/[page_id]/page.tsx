@@ -26,7 +26,7 @@ export default function Page({params}: PageProps){
         console.log(data);
         var t = data.filter((tempo:TodoItem) => tempo.id==id)[0];
         if(t==null){
-          t={name:"New item", description: "write the details here"};
+          t={name:"New item", description: "write the details here!"};
         }
         setItem(t);
         setName(t.name);
