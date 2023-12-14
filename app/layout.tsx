@@ -2,10 +2,10 @@ import './globals.css'
 
 
 export const metadata = {
-  metadataBase: new URL('https://postgres-prisma.vercel.app'),
-  title: 'Vercel Postgres Demo with Prisma',
+  metadataBase: new URL('https://todolistv5.vercel.app/'),
+  title: 'The best todo list app there is',
   description:
-    'A simple Next.js app with Vercel Postgres as the database and Prisma as the ORM',
+    'simple yet stupid',
 }
 
 
